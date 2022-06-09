@@ -343,3 +343,6 @@ try:
 except:
   print("Could not connect.")
   ``
+
+
+La bindshell estara en el puerto 4444 tendremos que cambiar la ip por la target y escuchar a dicho puerto. 
