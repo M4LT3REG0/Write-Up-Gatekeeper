@@ -343,6 +343,23 @@ try:
 except:
   print("Could not connect.")
   ``
+tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continuación ,abriremos dos CMD , en una estaremos escuchando con NETCAT (TARGET_IP) (PORT) y en la otra ejecutaremos el gatekeeper.py teniendo esta foto como resultado.
+
+![24](https://user-images.githubusercontent.com/107126653/172870160-13840a00-aecc-4e5f-a446-826237e737dd.png)
+
+#escalacion con linux
+
+ejecutamos el gatekeeperwriteup.py dando como resultando:
+![sendin evil](https://user-images.githubusercontent.com/107126653/172893623-b841acbb-dfd8-4a92-b970-1584c8309629.png)
+
+* si tienes problemas para conectarte con NC  prueba cierra la vpn y vuelve a ejecutarla.
+
+una vez nos conectamos mediante una BINDSHELL 
+![natbat](https://user-images.githubusercontent.com/107126653/172892019-9483f563-5444-40ea-b9c9-cce465fef434.png)
+
+usando los comandos dde windows podemos conseguir sin dificultad la primera flag siendo la user.txt.txt
+![natbat flag](https://user-images.githubusercontent.com/107126653/172892126-79db0337-c281-4b41-8c6a-510ff31ce8cf.png)
 
 
-La bindshell estara en el puerto 4444 tendremos que cambiar la ip por la target y escuchar a dicho puerto. 
+
+
