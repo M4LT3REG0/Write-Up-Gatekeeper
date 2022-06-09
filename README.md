@@ -256,7 +256,7 @@ ahora tenemos que conseguir la direccion de retorno mediante este comando  ``mon
 ![23](https://user-images.githubusercontent.com/107126653/172857048-392a61d7-41f9-459e-9c86-7d998b7b19ba.png)
 obtenemos estas direcciones que debemos de introducir en el python pero antes debemos de comprobar que no esten los badchars que hemos conseguido anteriormente.En el python debe quedar así:
 
-``
+```
 import socket
 
 ip = "127.0.0.1"
@@ -290,7 +290,7 @@ try:
   print("Done!")
 except:
   print("Could not connect.")
-``
+```
 yo he elegido esta direccion: 0x080414c3 se debe de introducir como esta en el python  de DERECHA A IZQUIERDA.
 
 Buscaremos en google una binshell adecuada tomamos como ejemplo está : https://packetstormsecurity.com/files/156148/Windows-x86-Dynamic-Bind-Shell-Null-Free-Shellcode.html
