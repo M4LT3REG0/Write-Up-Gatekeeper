@@ -352,10 +352,19 @@ tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continu
 ejecutamos el gatekeeperwriteup.py dando como resultando:
 ![sendin evil](https://user-images.githubusercontent.com/107126653/172893623-b841acbb-dfd8-4a92-b970-1584c8309629.png)
 
+
+
+
 * si tienes problemas para conectarte con NC  prueba cierra la vpn y vuelve a ejecutarla.
+
+
 
 una vez nos conectamos mediante una BINDSHELL 
 ![natbat](https://user-images.githubusercontent.com/107126653/172892019-9483f563-5444-40ea-b9c9-cce465fef434.png)
+
+
+
+
 
 usando los comandos dde windows podemos conseguir sin dificultad la primera flag siendo la user.txt.txt
 ![natbat flag](https://user-images.githubusercontent.com/107126653/172892126-79db0337-c281-4b41-8c6a-510ff31ce8cf.png)
