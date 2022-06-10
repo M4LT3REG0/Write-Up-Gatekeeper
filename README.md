@@ -352,7 +352,7 @@ tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continu
 
 ![24](https://user-images.githubusercontent.com/107126653/172870160-13840a00-aecc-4e5f-a446-826237e737dd.png)
 
-#escalacion con linux
+#ESCALACION DE PRIVILEGIOS EN LINUX
 
 ejecutamos el gatekeeperwriteup.py dando como resultando:
 ![sendin evil](https://user-images.githubusercontent.com/107126653/172893623-b841acbb-dfd8-4a92-b970-1584c8309629.png)
