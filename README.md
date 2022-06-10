@@ -1,6 +1,6 @@
 # Write-Up-Gatekeeper
 
-#ENUMERACIÓN
+# ENUMERACIÓN
 
 # Nmap 
 
@@ -355,7 +355,7 @@ tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continu
 
 
 
-#ESCALACION DE PRIVILEGIOS EN LINUX
+# ESCALACION DE PRIVILEGIOS EN LINUX
 
 
 
