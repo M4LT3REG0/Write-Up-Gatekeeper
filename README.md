@@ -352,7 +352,13 @@ tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continu
 
 ![24](https://user-images.githubusercontent.com/107126653/172870160-13840a00-aecc-4e5f-a446-826237e737dd.png)
 
+
+
+
 #ESCALACION DE PRIVILEGIOS EN LINUX
+
+
+
 
 ejecutamos el gatekeeperwriteup.py dando como resultando:
 ![sendin evil](https://user-images.githubusercontent.com/107126653/172893623-b841acbb-dfd8-4a92-b970-1584c8309629.png)
@@ -400,7 +406,8 @@ nos bajamos de github este repositorio  a nuestra kali linux ```git clone https:
    ![system32](https://user-images.githubusercontent.com/107126653/172903722-62caf4ec-b759-4238-8604-85b827b83558.png)
    
 
-   ahora !        [users root](https://user-images.githubusercontent.com/107126653/172903753-217771e4-11d7-4f81-beb4-ef493cecf3a9.png)
+   ahora !        ![users root](https://user-images.githubusercontent.com/107126653/173051846-d4e40bb9-4e46-48a3-aabb-2034e229ed3c.png)
+
     
                                                 
    users!         ![amyor desktop](https://user-images.githubusercontent.com/107126653/172903757-111e45fa-88e1-478d-9196-e173be309ea3.png)
